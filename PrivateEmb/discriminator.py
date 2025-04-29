@@ -65,7 +65,7 @@ class discriminator:
             # self.weight_i = 1 / self.sigmoid_i
             # self.weight_j = 1 / self.sigmoid_j
 
-            self.adv_loss = self.weight_i * tf.log(1 - sigmoid_i) + self.weight_j * tf.log(1 - sigmoid_j)
+            self.adv_loss = -self.weight_i * tf.log(1 - sigmoid_i) - self.weight_j * tf.log(1 - sigmoid_j)
 
             self.loss = tf.reduce_mean(self.sgm_loss + self.adv_loss)
             self.optimizer = tf.train.AdamOptimizer(learning_rate=args.lr_dis)
