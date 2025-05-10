@@ -228,7 +228,7 @@ class trainModel:
                             step = step + 1
                             '''
                             select rdp version you want to use from rdp_accountant;
-                            in rdp_accountant, compute_rdp() and compute_rdp_sample_without_replacement() directly
+                            in official rdp_accountant, compute_rdp() and compute_rdp_sample_without_replacement() directly
                             return total rdp after running many iterations with the same sampling probability. 
                             Here, we have two different sampling probabilities, and therefore modify the return value only for single rdp computation.
                             After that, we can accumulate rdp with different sampling probabilities. 
