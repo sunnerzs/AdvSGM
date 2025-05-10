@@ -395,7 +395,8 @@ def compute_rdp(q, noise_multiplier, steps, orders):
     rdp = np.array(
         [_compute_rdp(q, noise_multiplier, order) for order in orders])
 
-  return rdp * steps
+  # return rdp * steps
+  return rdp
 
 
 def compute_rdp_sample_without_replacement(q, noise_multiplier, steps, orders):
@@ -431,7 +432,8 @@ def compute_rdp_sample_without_replacement(q, noise_multiplier, steps, orders):
         for order in orders
     ])
 
-  return rdp * steps
+  # return rdp * steps
+  return rdp
 
 
 def _compute_rdp_sample_without_replacement_scalar(q, sigma, alpha):
