@@ -227,7 +227,7 @@ class trainModel:
                             # neg_sampling_prob = args.d_batch_size * args.K / number_of_nodes
                             step = step + 1
                             # select another rdp you want to use from rdp_accountant 
-                            rdp = compute_rdp(q=sampling_prob, noise_multiplier=args.dis_sigma, steps=step, orders=orders)
+                            rdp = rdp + compute_rdp(q=sampling_prob, noise_multiplier=args.dis_sigma, steps=step, orders=orders)
                             _eps, _delta, _ = get_privacy_spent(orders, rdp, target_eps=args.epsilon)
                             # print(_eps, _delta)
                             if _delta > args.delta:
