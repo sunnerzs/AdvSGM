@@ -227,7 +227,7 @@ class trainModel:
                             # neg_sampling_prob = args.d_batch_size * args.K / number_of_nodes
                             step = step + 1
                             '''
-                            select another rdp you want to use from rdp_accountant;
+                            select rdp you want to use from rdp_accountant;
                             in rdp_accountant, compute_rdp() and compute_rdp_sample_without_replacement() directly
                             return total rdp after running many iterations with the same sampling probability. 
                             Here, we have two different sampling probabilities, and modify the return value only for single rdp computation.
