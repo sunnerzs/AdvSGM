@@ -180,6 +180,7 @@ class trainModel:
                 gen_neg_loss = 0.0
                 gen_cnt = 0
                 found = False
+                step = 0
                 for epoch in range(args.n_epoch):
                     for d_epoch in range(args.d_epoch):
                         # for index in range(math.floor(args.num_of_edges / args.d_batch_size)):
@@ -223,16 +224,15 @@ class trainModel:
                                 sampling_prob = args.d_batch_size * args.K / number_of_nodes
                                 # print('111')
 
-                            neg_sampling_prob = args.d_batch_size * args.K / number_of_nodes
-                            steps = (d_epoch + 1) * (epoch + 1) * (count + 1)
-                            rdp = compute_rdp(q=sampling_prob, noise_multiplier=args.dis_sigma, steps=steps, orders=orders)
+                            # neg_sampling_prob = args.d_batch_size * args.K / number_of_nodes
+                            step = step + 1
+                            rdp = compute_rdp(q=sampling_prob, noise_multiplier=args.dis_sigma, steps=step, orders=orders)
                             _eps, _delta, _ = get_privacy_spent(orders, rdp, target_eps=args.epsilon)
                             # print(_eps, _delta)
                             if _delta > args.delta:
                                 print('jump out')
                                 found = True
                                 break
-
                             count = count + 1
                         if found:
                             break
